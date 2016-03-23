@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nwtx.manager.data.dao.MchBasicInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nwtx.manager.data.entity.MchBasicInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SYS_UUID" property="sysUuid" jdbcType="VARCHAR" />
+    <result column="MCH_UUID" property="mchUuid" jdbcType="VARCHAR" />
+    <result column="MCH_ACCOUNT" property="mchAccount" jdbcType="VARCHAR" />
+    <result column="MCH_NAME" property="mchName" jdbcType="VARCHAR" />
+    <result column="MCH_ADDRESS" property="mchAddress" jdbcType="VARCHAR" />
+    <result column="MCH_CONTACT" property="mchContact" jdbcType="VARCHAR" />
+    <result column="MCH_MAILBOX" property="mchMailbox" jdbcType="VARCHAR" />
+    <result column="MCH_PWD" property="mchPwd" jdbcType="VARCHAR" />
+    <result column="MCH_FIRST_CLASSIFICATION" property="mchFirstClassification" jdbcType="VARCHAR" />
+    <result column="MCH_SECOND_CLASSIFICATION" property="mchSecondClassification" jdbcType="VARCHAR" />
+    <result column="MCH_PROVINCE_ID" property="mchProvinceId" jdbcType="VARCHAR" />
+    <result column="MCH_CITY_ID" property="mchCityId" jdbcType="VARCHAR" />
+    <result column="MCH_AREA_ID" property="mchAreaId" jdbcType="VARCHAR" />
+    <result column="MCH_STREET_ID" property="mchStreetId" jdbcType="VARCHAR" />
+    <result column="MCH_LOGO" property="mchLogo" jdbcType="VARCHAR" />
+    <result column="MCH_STATUS" property="mchStatus" jdbcType="CHAR" />
+    <result column="CREATE_ID" property="createId" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_ID" property="updateId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="CHECK_REMARK" property="checkRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SYS_UUID, MCH_UUID, MCH_ACCOUNT, MCH_NAME, MCH_ADDRESS, MCH_CONTACT, MCH_MAILBOX, 
+    MCH_PWD, MCH_FIRST_CLASSIFICATION, MCH_SECOND_CLASSIFICATION, MCH_PROVINCE_ID, MCH_CITY_ID, 
+    MCH_AREA_ID, MCH_STREET_ID, MCH_LOGO, MCH_STATUS, CREATE_ID, CREATE_DATE, UPDATE_ID, 
+    UPDATE_DATE, CHECK_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from MCH_BASIC_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from MCH_BASIC_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nwtx.manager.data.entity.MchBasicInfo" >
+    insert into MCH_BASIC_INFO (ID, SYS_UUID, MCH_UUID, 
+      MCH_ACCOUNT, MCH_NAME, MCH_ADDRESS, 
+      MCH_CONTACT, MCH_MAILBOX, MCH_PWD, 
+      MCH_FIRST_CLASSIFICATION, MCH_SECOND_CLASSIFICATION, 
+      MCH_PROVINCE_ID, MCH_CITY_ID, MCH_AREA_ID, 
+      MCH_STREET_ID, MCH_LOGO, MCH_STATUS, 
+      CREATE_ID, CREATE_DATE, UPDATE_ID, 
+      UPDATE_DATE, CHECK_REMARK)
+    values (#{id,jdbcType=INTEGER}, #{sysUuid,jdbcType=VARCHAR}, #{mchUuid,jdbcType=VARCHAR}, 
+      #{mchAccount,jdbcType=VARCHAR}, #{mchName,jdbcType=VARCHAR}, #{mchAddress,jdbcType=VARCHAR}, 
+      #{mchContact,jdbcType=VARCHAR}, #{mchMailbox,jdbcType=VARCHAR}, #{mchPwd,jdbcType=VARCHAR}, 
+      #{mchFirstClassification,jdbcType=VARCHAR}, #{mchSecondClassification,jdbcType=VARCHAR}, 
+      #{mchProvinceId,jdbcType=VARCHAR}, #{mchCityId,jdbcType=VARCHAR}, #{mchAreaId,jdbcType=VARCHAR}, 
+      #{mchStreetId,jdbcType=VARCHAR}, #{mchLogo,jdbcType=VARCHAR}, #{mchStatus,jdbcType=CHAR}, 
+      #{createId,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateId,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{checkRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwtx.manager.data.entity.MchBasicInfo" >
+    insert into MCH_BASIC_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="sysUuid != null" >
+        SYS_UUID,
+      </if>
+      <if test="mchUuid != null" >
+        MCH_UUID,
+      </if>
+      <if test="mchAccount != null" >
+        MCH_ACCOUNT,
+      </if>
+      <if test="mchName != null" >
+        MCH_NAME,
+      </if>
+      <if test="mchAddress != null" >
+        MCH_ADDRESS,
+      </if>
+      <if test="mchContact != null" >
+        MCH_CONTACT,
+      </if>
+      <if test="mchMailbox != null" >
+        MCH_MAILBOX,
+      </if>
+      <if test="mchPwd != null" >
+        MCH_PWD,
+      </if>
+      <if test="mchFirstClassification != null" >
+        MCH_FIRST_CLASSIFICATION,
+      </if>
+      <if test="mchSecondClassification != null" >
+        MCH_SECOND_CLASSIFICATION,
+      </if>
+      <if test="mchProvinceId != null" >
+        MCH_PROVINCE_ID,
+      </if>
+      <if test="mchCityId != null" >
+        MCH_CITY_ID,
+      </if>
+      <if test="mchAreaId != null" >
+        MCH_AREA_ID,
+      </if>
+      <if test="mchStreetId != null" >
+        MCH_STREET_ID,
+      </if>
+      <if test="mchLogo != null" >
+        MCH_LOGO,
+      </if>
+      <if test="mchStatus != null" >
+        MCH_STATUS,
+      </if>
+      <if test="createId != null" >
+        CREATE_ID,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+      <if test="checkRemark != null" >
+        CHECK_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sysUuid != null" >
+        #{sysUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchUuid != null" >
+        #{mchUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAccount != null" >
+        #{mchAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mchName != null" >
+        #{mchName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAddress != null" >
+        #{mchAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mchContact != null" >
+        #{mchContact,jdbcType=VARCHAR},
+      </if>
+      <if test="mchMailbox != null" >
+        #{mchMailbox,jdbcType=VARCHAR},
+      </if>
+      <if test="mchPwd != null" >
+        #{mchPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="mchFirstClassification != null" >
+        #{mchFirstClassification,jdbcType=VARCHAR},
+      </if>
+      <if test="mchSecondClassification != null" >
+        #{mchSecondClassification,jdbcType=VARCHAR},
+      </if>
+      <if test="mchProvinceId != null" >
+        #{mchProvinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchCityId != null" >
+        #{mchCityId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAreaId != null" >
+        #{mchAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchStreetId != null" >
+        #{mchStreetId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchLogo != null" >
+        #{mchLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="mchStatus != null" >
+        #{mchStatus,jdbcType=CHAR},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkRemark != null" >
+        #{checkRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwtx.manager.data.entity.MchBasicInfo" >
+    update MCH_BASIC_INFO
+    <set >
+      <if test="sysUuid != null" >
+        SYS_UUID = #{sysUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchUuid != null" >
+        MCH_UUID = #{mchUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAccount != null" >
+        MCH_ACCOUNT = #{mchAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mchName != null" >
+        MCH_NAME = #{mchName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAddress != null" >
+        MCH_ADDRESS = #{mchAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mchContact != null" >
+        MCH_CONTACT = #{mchContact,jdbcType=VARCHAR},
+      </if>
+      <if test="mchMailbox != null" >
+        MCH_MAILBOX = #{mchMailbox,jdbcType=VARCHAR},
+      </if>
+      <if test="mchPwd != null" >
+        MCH_PWD = #{mchPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="mchFirstClassification != null" >
+        MCH_FIRST_CLASSIFICATION = #{mchFirstClassification,jdbcType=VARCHAR},
+      </if>
+      <if test="mchSecondClassification != null" >
+        MCH_SECOND_CLASSIFICATION = #{mchSecondClassification,jdbcType=VARCHAR},
+      </if>
+      <if test="mchProvinceId != null" >
+        MCH_PROVINCE_ID = #{mchProvinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchCityId != null" >
+        MCH_CITY_ID = #{mchCityId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchAreaId != null" >
+        MCH_AREA_ID = #{mchAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchStreetId != null" >
+        MCH_STREET_ID = #{mchStreetId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchLogo != null" >
+        MCH_LOGO = #{mchLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="mchStatus != null" >
+        MCH_STATUS = #{mchStatus,jdbcType=CHAR},
+      </if>
+      <if test="createId != null" >
+        CREATE_ID = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkRemark != null" >
+        CHECK_REMARK = #{checkRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwtx.manager.data.entity.MchBasicInfo" >
+    update MCH_BASIC_INFO
+    set SYS_UUID = #{sysUuid,jdbcType=VARCHAR},
+      MCH_UUID = #{mchUuid,jdbcType=VARCHAR},
+      MCH_ACCOUNT = #{mchAccount,jdbcType=VARCHAR},
+      MCH_NAME = #{mchName,jdbcType=VARCHAR},
+      MCH_ADDRESS = #{mchAddress,jdbcType=VARCHAR},
+      MCH_CONTACT = #{mchContact,jdbcType=VARCHAR},
+      MCH_MAILBOX = #{mchMailbox,jdbcType=VARCHAR},
+      MCH_PWD = #{mchPwd,jdbcType=VARCHAR},
+      MCH_FIRST_CLASSIFICATION = #{mchFirstClassification,jdbcType=VARCHAR},
+      MCH_SECOND_CLASSIFICATION = #{mchSecondClassification,jdbcType=VARCHAR},
+      MCH_PROVINCE_ID = #{mchProvinceId,jdbcType=VARCHAR},
+      MCH_CITY_ID = #{mchCityId,jdbcType=VARCHAR},
+      MCH_AREA_ID = #{mchAreaId,jdbcType=VARCHAR},
+      MCH_STREET_ID = #{mchStreetId,jdbcType=VARCHAR},
+      MCH_LOGO = #{mchLogo,jdbcType=VARCHAR},
+      MCH_STATUS = #{mchStatus,jdbcType=CHAR},
+      CREATE_ID = #{createId,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{updateId,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      CHECK_REMARK = #{checkRemark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
